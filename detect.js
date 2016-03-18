@@ -3,47 +3,13 @@
 // Check if current browser is Opera
 var isOpera = window.opera | window.opr | ( navigator.userAgent.indexOf(' OPR/') > -1 ) | ( navigator.userAgent.indexOf(' Coast/') > -1 ) | ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
 
-
-
-// Check if the Opera browser is Opera Mini or Opera Mobile in regular mode (called High Savings Mode)
-var isOperaHigh = (navigator.userAgent.indexOf('OPR/') > -1) && (navigator.userAgent.indexOf('Mobile') > -1) && (navigator.userAgent.indexOf('Presto/') < 0);
-
-// Check if the Opera browser is Opera Mini in Extreme Savings Mode
-var isOperaExtreme = (navigator.userAgent.indexOf('Opera Mini/') > -1) && (navigator.userAgent.indexOf('Presto/') > -1);
-
-
-
-// REPORTING
-
-var operaMode;
-
-if ( isOperaHigh ) {
-	operaMode = "High Savings Mode (Regular)";
-
-	ga('send', 'pageview', {
-	  'dimension1': operaMode
-	});
-}
-else if ( isOperaExtreme ) {
-	operaMode = "Extreme Savings Mode";
-
-	ga('send', 'pageview', {
-	  'dimension1': operaMode
-	});
-}
-else {
-	operaMode = "Not Opera Mobile/Mini";
-}
-
-
-var operaDetect = {};
-
+var operaDetect = new Object;
 operaDetect.isOpera = isOpera;
 
-if ( isOpera ) {
+
+if ( operaDetect.isOpera ) {
 
 	operaDetect.results = new Object;
-
 
 	/* Platform */
 	if ( (navigator.userAgent.indexOf('Mobile') > -1) | (navigator.userAgent.indexOf('Opera Mini/') > -1) ) {
@@ -52,9 +18,7 @@ if ( isOpera ) {
 		operaDetect.results.platform = "Desktop";
 	}
 
-
 	/* OS */
-
 	if ( (navigator.userAgent.indexOf('Android') > -1) ) {
 		operaDetect.results.OS = "Android";
 	} else if ( (navigator.userAgent.indexOf('Coast/') > -1) | (navigator.userAgent.indexOf('iPad') > -1) | (navigator.userAgent.indexOf('iPhone') > -1) ) {
@@ -66,57 +30,39 @@ if ( isOpera ) {
 	}
 
 
-
 	/* Browser */
-
-	if ( (navigator.userAgent.indexOf('OPiOS/') > -1) | 
-
-		 (navigator.userAgent.indexOf('Opera Mini/') > -1) |
-
+	if ( (navigator.userAgent.indexOf('OPiOS/') > -1) | (navigator.userAgent.indexOf('Opera Mini/') > -1) |
 		 (navigator.userAgent.indexOf('OPR/15') > -1 && navigator.userAgent.indexOf('Mobile') > -1)  ) {
-
 		operaDetect.results.browser = "Opera Mini";
-
 	} else if ( (navigator.userAgent.indexOf('OPR/') > -1 && navigator.userAgent.indexOf('Mobile') > -1) ) {
-
 		operaDetect.results.browser = "Opera Mobile";
-
 	} else if ( (navigator.userAgent.indexOf('Coast/') > -1) ) {
-
 		operaDetect.results.browser = "Opera Coast";
-
 	} else if ( (navigator.userAgent.indexOf('OPR/') > -1) ) {
-
 		operaDetect.results.browser = "Opera Desktop";
 	} else {
 		operaDetect.results.browser = "Unknown";
 	}
 
 
-
 	/* Mode */
 	if ( (navigator.userAgent.indexOf('Presto/') > -1) && (navigator.userAgent.indexOf('Opera Mini/') > -1) ) {
-
 		operaDetect.results.mode = "Extreme Savings";
+		operaDetect.isExtremeMode = 1;
 	} else {
 		operaDetect.results.mode = "High/Normal Savings";
+		operaDetect.isExtremeMode = 0;
 	}
-
-
 
 
 } else {
 
-	operaDetect.results = false;
+	operaDetect.results = 0;
+	operaDetect.isExtremeMode = 0;
 }
 
 
 
-console.log(operaDetect);
 
 
-// operaDetect.results = {
-// 	browser:
-// 	device:
-// 	mode:
-// }
+

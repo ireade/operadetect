@@ -10,9 +10,13 @@ var platform = document.getElementById('platform');
 //console.log(navigator);
 
 
-if ( isOpera ) {
-	foo.innerHTML = "Is Opera - " + operaMode;
+console.log(operaDetect);
 
+
+
+if ( operaDetect.isOpera ) {
+
+	foo.innerHTML = "Is Opera";
 
 	OS.innerHTML = "OS: "+ operaDetect.results.OS;
 	browser.innerHTML = "browser: "+ operaDetect.results.browser;
@@ -26,3 +30,22 @@ if ( isOpera ) {
 
 
 bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
+
+
+
+
+// GA REPORTING
+
+if ( operaDetect.isExtremeMode  ) {
+
+	ga('send', 'pageview', {
+	  'dimension1': "Extreme Savings Mode"
+	});
+}
+else if ( operaDetect.isOpera && !operaDetect.isExtremeMode ) {
+	operaMode = "";
+
+	ga('send', 'pageview', {
+	  'dimension1': "High/Normal Savings Mode"
+	});
+}
