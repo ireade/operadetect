@@ -22,6 +22,7 @@
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	  ga('create', 'UA-60256750-12', 'auto');
+
 	  ga('send', 'pageview');
 
 	</script>
@@ -37,43 +38,7 @@
 
 
 
-    <script>
-    	var foo = document.getElementById('foo');
-    	var bar = document.getElementById('bar');
-
-    	console.log(navigator);
-
-
-		// Check if current browser is Opera
-		var isOpera = window.opera | window.opr | ( navigator.userAgent.indexOf(' OPR/') > -1 );
-
-		// Check if the Opera browser is Opera Mini or Opera Mobile in regular mode (called High Savings Mode)
-		var isOperaHigh = (navigator.userAgent.indexOf('OPR/') > -1) && (navigator.userAgent.indexOf('Mobile') > -1) && (navigator.userAgent.indexOf('Presto/') < 0);
-
-		// Check if the Opera browser is Opera Mini in Extreme Savings Mode
-		var isOperaExtreme = (navigator.userAgent.indexOf('Opera Mini/') > -1) && (navigator.userAgent.indexOf('Presto/') > -1);
-
-
-
-		if ( isOpera ) {
-			var operatype;
-
-			if ( isOperaExtreme ) {
-				operatype = "Extreme Savings Mode"
-			} else if ( isOperaHigh ) {
-				operatype = "High Savings Mode (Regular)"
-			} else {
-				operatype = "Not Opera Mini or Opera Mobile"
-			}
-
-			foo.innerHTML = "Is Opera - " + operatype;
-		} else {
-			foo.innerHTML = "Not Opera";
-		}
-
-
-		bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
-
-    </script>
+    <script src="detect.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
