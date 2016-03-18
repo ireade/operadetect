@@ -38,14 +38,13 @@ bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
 
 if ( operaDetect.isExtremeMode  ) {
 
-	ga('send', 'pageview', {
-	  'dimension1': "Extreme Savings Mode"
-	});
+	ga('set', 'dimension1', 'Extreme Savings Mode');
+
 }
 else if ( operaDetect.isOpera && !operaDetect.isExtremeMode ) {
-	operaMode = "";
 
-	ga('send', 'pageview', {
-	  'dimension1': "High/Normal Savings Mode"
-	});
+	ga('set', 'dimension1', 'High/Normal Savings Mode');
 }
+
+
+ga('send', 'pageview');
