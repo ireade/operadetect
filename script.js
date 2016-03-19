@@ -33,23 +33,30 @@ bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
 
 
 
+var dimension_mode = '1';
+var dimension_platform = '2';
+var dimension_browser = '3';
+var dimension_os = '4';
+
+
 
 // GA REPORTING
 
-if ( operaDetect.isExtremeMode  ) {
+if ( operaDetect.isOpera ) {
 
-	ga('send', 'pageview', {
-	  'dimension1':  'Extreme Savings Mode'
-	});
+	dimensions = new Object;
+
+	dimensions[ 'dimension' + dimension_mode ] = operaDetect.results.mode;
+	dimensions[ 'dimension' + dimension_platform ] = operaDetect.results.platform;
+	dimensions[ 'dimension' + dimension_browser ] = operaDetect.results.browser;
+	dimensions[ 'dimension' + dimension_os ] = operaDetect.results.OS;
+
+	ga('send', 'pageview', dimensions);
 
 
+} else {
+	ga('send', 'pageview');
 }
-else if ( operaDetect.isOpera && !operaDetect.isExtremeMode ) {
 
-
-	ga('send', 'pageview', {
-	  'dimension1':  'High/Normal Savings Mode'
-	});
-}
 
 
