@@ -44,19 +44,19 @@ var dimension_os = '4';
 
 if ( operaDetect.isOpera ) {
 
-	dimensions = new Object;
 
-	dimensions[ 'dimension' + dimension_mode ] = operaDetect.results.mode;
-	dimensions[ 'dimension' + dimension_platform ] = operaDetect.results.platform;
-	dimensions[ 'dimension' + dimension_browser ] = operaDetect.results.browser;
-	dimensions[ 'dimension' + dimension_os ] = operaDetect.results.OS;
+	dimension_mode = 'dimension' + dimension_mode;
+	dimension_platform = 'dimension' + dimension_platform;
+	dimension_browser = 'dimension' + dimension_browser;
+	dimension_os = 'dimension' + dimension_os;
 
-	ga('send', 'pageview', dimensions);
+	ga('set', dimension_mode, operaDetect.results.mode);
+	ga('set', dimension_platform, operaDetect.results.platform);
+	ga('set', dimension_browser, operaDetect.results.browser);
+	ga('set', dimension_os, operaDetect.results.OS);
 
-
-} else {
-	ga('send', 'pageview');
-}
+} 
+ga('send', 'pageview');
 
 
 
