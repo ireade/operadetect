@@ -30,33 +30,3 @@ if ( operaDetect.isOpera ) {
 
 
 bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
-
-
-
-var dimension_mode = '1';
-var dimension_platform = '2';
-var dimension_browser = '3';
-var dimension_os = '4';
-
-
-
-// GA REPORTING
-
-if ( operaDetect.isOpera ) {
-
-	dimension_mode = 'dimension' + dimension_mode;
-	dimension_platform = 'dimension' + dimension_platform;
-	dimension_browser = 'dimension' + dimension_browser;
-	dimension_os = 'dimension' + dimension_os;
-
-	ga('set', dimension_browser, operaDetect.results.browser);
-	ga('set', dimension_mode, operaDetect.results.mode);
-	ga('set', dimension_platform, operaDetect.results.platform);
-	
-	ga('set', dimension_os, operaDetect.results.OS);
-} 
-
-ga('send', 'pageview');
-
-
-
