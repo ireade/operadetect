@@ -44,18 +44,18 @@ var dimension_os = '4';
 
 if ( operaDetect.isOpera ) {
 
-
 	dimension_mode = 'dimension' + dimension_mode;
 	dimension_platform = 'dimension' + dimension_platform;
 	dimension_browser = 'dimension' + dimension_browser;
 	dimension_os = 'dimension' + dimension_os;
 
+	ga('set', dimension_browser, operaDetect.results.browser);
 	ga('set', dimension_mode, operaDetect.results.mode);
 	ga('set', dimension_platform, operaDetect.results.platform);
-	ga('set', dimension_browser, operaDetect.results.browser);
+	
 	ga('set', dimension_os, operaDetect.results.OS);
-
 } 
+
 ga('send', 'pageview');
 
 
