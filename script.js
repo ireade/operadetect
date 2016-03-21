@@ -1,32 +1,35 @@
-var foo = document.getElementById('foo');
-var bar = document.getElementById('bar');
-
-
-var OS = document.getElementById('OS');
-var browser = document.getElementById('browser');
-var mode = document.getElementById('mode');
-var platform = document.getElementById('platform');
-
-//console.log(navigator);
-
-
-console.log(operaDetect);
+var elementsToShowIfIsOpera = document.getElementsByClassName('isOpera');
+var elementsToShowIfIsNotOpera = document.getElementsByClassName('notOpera');
 
 
 
 if ( operaDetect.isOpera ) {
 
-	foo.innerHTML = "Is Opera";
+	for ( var i = 0; i < elementsToShowIfIsOpera.length; i++ ) {
+		elementsToShowIfIsOpera[i].style.display = "block";
+	}
 
-	OS.innerHTML = "OS: "+ operaDetect.results.OS;
-	browser.innerHTML = "browser: "+ operaDetect.results.browser;
-	mode.innerHTML = "mode: "+ operaDetect.results.mode;
-	platform.innerHTML = "platform: "+ operaDetect.results.platform;
+
+	var sampleOperaDetectObj = document.getElementById('sampleOperaDetectObj');
+
+	sampleOperaDetectObj.innerHTML = JSON.stringify(operaDetect, null, 4);
+
+
+
+	document.getElementById('foo').innerHTML = navigator.userAgent;
+	//document.getElementById('user_agent').value = navigator.userAgent;
+
+
+	
+
 
 
 } else {
-	foo.innerHTML = "Not Opera";
+
+	for ( var i = 0; i < elementsToShowIfIsNotOpera.length; i++ ) {
+		elementsToShowIfIsNotOpera[i].style.display = "block";
+	}
 }
 
 
-bar.innerHTML = "navigator.userAgent: "+ navigator.userAgent;
+

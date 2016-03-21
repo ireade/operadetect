@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ireade/operaminidetector.git"
+    "url": "git+https://github.com/ireade/operadetect.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ireade/operaminidetector/issues"
+    "url": "https://github.com/ireade/operadetect/issues"
   },
-  "homepage": "https://github.com/ireade/operaminidetector#readme"
+  "homepage": "https://github.com/ireade/operadetect#readme"
 }

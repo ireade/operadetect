@@ -1,15 +1,19 @@
-
+// Setup operaDetect object
+var operaDetect = new Object;
 
 // Check if current browser is Opera
-var isOpera = window.opera | window.opr | ( navigator.userAgent.indexOf(' OPR/') > -1 ) | ( navigator.userAgent.indexOf(' Coast/') > -1 ) | ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
+operaDetect.isOpera = window.opera | 
+			  window.opr | 
+			  ( navigator.userAgent.indexOf(' OPR/') > -1 ) | 
+			  ( navigator.userAgent.indexOf(' Coast/') > -1 ) | 
+			  ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
 
-var operaDetect = new Object;
-operaDetect.isOpera = isOpera;
 
-
+// IF CURRENT BROWSER IS AN OPERA BROWSER
 if ( operaDetect.isOpera ) {
 
 	operaDetect.results = new Object;
+
 
 	/* Platform */
 	if ( (navigator.userAgent.indexOf('Mobile') > -1) | 
@@ -26,6 +30,7 @@ if ( operaDetect.isOpera ) {
 		operaDetect.results.platform = "Desktop";
 		
 	}
+
 
 	/* OS */
 	if ( navigator.userAgent.indexOf('Android') > -1 ) {
@@ -89,12 +94,7 @@ if ( operaDetect.isOpera ) {
 
 } else {
 
+	// IF CURRENT BROWSER IS NOT OPERA BROWSER
 	operaDetect.results = 0;
 	operaDetect.isExtremeMode = 0;
 }
-
-
-
-
-
-
