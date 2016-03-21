@@ -28,6 +28,8 @@ var operaDetect = {
 }
 ```
 
+You can get the detection script from this repository, it's `opera-detect.min.js` or `opera-detect.js`.
+
 
 
 ## Analytics
@@ -39,7 +41,7 @@ To create a custom dimension go to **Admin > Property > Custom Definitions > Cus
 
 Setup 4 Custom Dimensions with a Scope of Hit.
 
-![](http://detect.operamini.tips/img/custom-dimensions.png)
+![Setting up Custom Dimensions on Google Analytics](http://detect.operamini.tips/img/custom-dimensions.png)
 
 Take note of the **Index** value for each of the dimensions.
 
@@ -93,7 +95,7 @@ if ( operaDetect.isOpera ) {
 	}
 } 
 
-// Send pageview
+// Send pageview as usual
 ga('send', 'pageview');
 ```
 
@@ -113,6 +115,29 @@ Make sure the three scripts are in the following order -
 <script src="opera-detect.min.js"></script>
 <script src="opera-analytics.js"></script>
 ```
+
+
+### Step 5 - Setup Custom Dashboard
+
+You may want to setup a custom dashboard specifically for the Opera analytics. Here is an example of a custom dashboard you can do - 
+
+![Google Analytics Dashabord](http://detect.operamini.tips/img/ga-dashboard.png)
+
+At the very least, you may want to have four widgets in this dashboard - 
+
+1. Page Views by Mode
+1. Page Views by Browser
+1. Page Views by Operating System
+1. Page Views by Platform
+
+Example setup of a widget - 
+
+![Google Analytics Widget Config](http://detect.operamini.tips/img/ga-widget.png)
+
+
+&nbsp;
+
+Done! If you have any questions, tweet me at [@operaminitips](http://twitter.com/operaminitips) or [@ireaderinokun](http://twitter.com/ireaderinokun)
 
 
 
