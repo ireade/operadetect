@@ -1,5 +1,4 @@
 // Add the indices here
-
 var dimension_mode_index = '1';
 var dimension_platform_index = '2';
 var dimension_browser_index = '3';
@@ -7,7 +6,6 @@ var dimension_os_index = '4';
 
 
 // You don't need to edit anything beyond this point
-
 if ( operaDetect.isOpera ) {
 	if ( dimension_mode_index ) {
 		dimension_mode_index = 'dimension' + dimension_mode_index;

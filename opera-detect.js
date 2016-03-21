@@ -47,8 +47,14 @@ if ( operaDetect.isOpera ) {
 
 		operaDetect.results.OS = "OSX";
 
+	} else if ( (navigator.userAgent.indexOf('Windows') > -1) ) {
+
+		operaDetect.results.OS = "Windows";
+
 	} else {
+
 		operaDetect.results.OS = "Other";
+
 	}
 
 

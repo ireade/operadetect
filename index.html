@@ -39,24 +39,28 @@
 		<section>
 			<h2>About</h2>
 
-			<!-- <p>Opera Mini is a web browser that offers users an Extreme Data Savings Mode. In this mode, a lot of typically used development features are not supported (for example, transforms. <a href="http://operamini.tips">See the full list</a>).</p>
+			<p>Opera Mini is a web browser that offers users an Extreme Data Savings Mode. In this mode, a lot of typically used development features are not supported (for example, transforms. <a href="http://operamini.tips">See the full list</a>).</p>
 
 			<p>There hasn't been a way to detect if a user is on this Extreme Savings Mode, until now. Opera Detect is a tiny script that allows you to access information about the Opera Browser a user is on, including which savings mode they are using. </p>
 
-			<p><a href="">Read the Blog Post</a></p> -->
+			<p><a href="">Read the Blog Post</a> | From <a href="http://operamini.tips">OperaMini.Tips</a></p>
 
-
+			<p><iframe src="https://ghbtns.com/github-btn.html?user=ireade&repo=operadetect&type=star&count=false" frameborder="0" scrolling="0" width="60px" height="20px"></iframe></p>
+		</section>
 
 			<br>
 
-			<h3>Example</h3>
+		<section>
+			<h2>Example</h2>
+
+			<p>Here is your navigator.userAgent string - </p>
+			<pre id="userAgentString"></pre>
+
+			<br>
+
 
 			<div class="notOpera">
-				
-			<p>You're not using an Opera Browser at the moment, but there is an example of what you would get if the you were using the Opera Mini Browser with Extreme Savings Mode on a Nexus 5 - </p>
-
-
-
+				<p>You're not using an Opera Browser at the moment, but there is an example of what you would get if the you were using the Opera Mini Browser with Extreme Savings Mode on a Nexus 5 - </p>
 <pre>
 var operaDetect = {  
   isOpera: 1
@@ -68,29 +72,21 @@ var operaDetect = {
     OS: "Android"
   }
 }</pre>
-</div>
+			</div>
 			
 			<div class="isOpera">
 			
-			<p>Looks like you're using an Opera browser, great! Here is the information on your current browser.</p>
-
-			<p id="foo"></p>
+				<p>Looks like you're using an Opera browser, great! Here is the information on your current browser.</p>
 			
 <pre id="sampleOperaDetectObj"></pre>
 
-
-</div>
-
-
-
-
-
-
-			
+			</div>
 		</section>
 
 
-		<!-- <section>
+		<br><br>
+
+<!-- 		<section>
 			<h2>Help Improve Data</h2>
 
 			<p>This detection script works by looking at the navigator.userAgent string returned by the browser. I have done test on various browsers, but it'll help to have more data.</p>
@@ -111,7 +107,7 @@ var operaDetect = {
 
 					<div class="input-group">
 						<label for="your_os">Your Operating System *</label>
-						<input type="text" id="your_os" name="your_os" placeholder="eg. iOS, Android, OSX" required>
+						<input type="text" id="your_os" name="your_os" placeholder="eg. iOS, Android, OSX, Windows" required>
 					</div>
 
 					<div class="input-group">
@@ -144,7 +140,7 @@ var operaDetect = {
 
 
 					<div class="input-group">
-						<label for="email">Your Email Address</label>
+						<label for="email">Your Email Address (in case I have followup questions)</label>
 						<input type="email" id="email" name="email">
 					</div>
 
