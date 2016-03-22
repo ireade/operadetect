@@ -46,78 +46,52 @@ Setup 4 Custom Dimensions with a Scope of Hit.
 Take note of the **Index** value for each of the dimensions.
 
 
+### Step 2 — Add the Detection Script 
 
-
-### Step 2 — Include Modified GA Script
-
-Remove or comment-out the line that sends the pageview as this will be sent after the custom dimensions are set. 
+Add the `opera-detect.min.js` file just before the Google Analytics script.
 
 ```
+<script src="js/opera-detect.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', '[property-reference]', 'auto');
-  // ga('send', 'pageview');
+  ga('send', 'pageview');
 </script>
 ```
 
 
-### Step 3 - Create `opera-analytics.js` file
 
-Copy the code below into the `opera-analytics.js` file. Update the first 4 lines with the index for the relevant dimensions. 
+### Step 3 — Modify Google Analytics Script
 
-```
-// Add the indices here
-var dimension_mode_index = '1';
-var dimension_platform_index = '2';
-var dimension_browser_index = '3';
-var dimension_os_index = '4';
+Above the sending of the pageview, but below the creating of the Google Analytics reference, set the four custom dimensions to be equal to the results from the `opera-detect.min.js` script (if the current browser is Opera).
 
-// You don't need to edit anything beyond this point
-if ( operaDetect.isOpera ) {
-	if ( dimension_mode_index ) {
-		dimension_mode_index = 'dimension' + dimension_mode_index;
-		ga('set', dimension_mode_index, operaDetect.results.mode);
-	}
-	if ( dimension_platform_index ) {
-		dimension_platform_index = 'dimension' + dimension_platform_index;
-		ga('set', dimension_platform_index, operaDetect.results.platform);
-	}
-	if ( dimension_browser_index ) {
-		dimension_browser_index = 'dimension' + dimension_browser_index;
-		ga('set', dimension_browser_index, operaDetect.results.browser);
-	}
-	if ( dimension_os_index ) {
-		dimension_os_index = 'dimension' + dimension_os_index;
-		ga('set', dimension_os_index, operaDetect.results.OS);
-	}
-} 
-
-// Send pageview as usual
-ga('send', 'pageview');
-```
-
-
-### Step 4 - Include Script Files in the Correct Order
-
-Make sure the three scripts are in the following order -
+Make sure the dimension numbers correspond to the dimension index from the previous step.
 
 ```
+<script src="js/opera-detect.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-60256750-12', 'auto');
+  ga('create', '[property-reference]', 'auto');
+
+  if ( operaDetect.isOpera ) {
+    ga('set', 'dimension1', operaDetect.results.mode);
+    ga('set', 'dimension2', operaDetect.results.platform);
+    ga('set', 'dimension3', operaDetect.results.browser);
+    ga('set', 'dimension4', operaDetect.results.OS);
+  }
+
+  ga('send', 'pageview');
 </script>
-<script src="opera-detect.min.js"></script>
-<script src="opera-analytics.js"></script>
 ```
 
 
-### Step 5 - Setup Custom Dashboard
+### Step 4 - Setup Custom Dashboard
 
 You may want to setup a custom dashboard specifically for the Opera analytics. Here is an example of a custom dashboard you can do - 
 

@@ -3,10 +3,10 @@ var operaDetect = new Object;
 
 // Check if current browser is Opera
 operaDetect.isOpera = window.opera | 
-			  window.opr | 
-			  ( navigator.userAgent.indexOf(' OPR/') > -1 ) | 
-			  ( navigator.userAgent.indexOf(' Coast/') > -1 ) | 
-			  ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
+					  window.opr | 
+					  ( navigator.userAgent.indexOf(' OPR/') > -1 ) | 
+					  ( navigator.userAgent.indexOf(' Coast/') > -1 ) | 
+					  ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
 
 
 // IF CURRENT BROWSER IS AN OPERA BROWSER
