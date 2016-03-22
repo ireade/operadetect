@@ -15,7 +15,7 @@ Previously, there has been now way to detect if a user is on Extreme or High Sav
 The script returns an object, `operaDetect`, with some information about the current Opera Browser. For example, the following will be returned when viewing from an Opera Mini Browser with Extreme Savings Mode on a Nexus 5.
 
 
-```
+```javascript
 var operaDetect = {
   isOpera: 1
   isExtremeMode: 1
@@ -50,7 +50,7 @@ Take note of the **Index** value for each of the dimensions.
 
 Add the `opera-detect.min.js` file just before the Google Analytics script.
 
-```
+```javascript
 <script src="js/opera-detect.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,7 +70,7 @@ Above the sending of the pageview, but below the creating of the Google Analytic
 
 Make sure the dimension numbers correspond to the dimension index from the previous step.
 
-```
+```javascript
 <script src="js/opera-detect.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
