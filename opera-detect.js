@@ -2,10 +2,10 @@
 var operaDetect = new Object;
 
 // Check if current browser is Opera
-operaDetect.isOpera = window.opera | 
-					  window.opr | 
-					  ( navigator.userAgent.indexOf(' OPR/') > -1 ) | 
-					  ( navigator.userAgent.indexOf(' Coast/') > -1 ) | 
+operaDetect.isOpera = !!window.opera |
+					  !!window.opr | 
+					  ( navigator.userAgent.indexOf(' OPR/') > -1 ) |
+					  ( navigator.userAgent.indexOf(' Coast/') > -1 ) |
 					  ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
 
 
@@ -16,7 +16,7 @@ if ( operaDetect.isOpera ) {
 
 
 	/* Platform */
-	if ( (navigator.userAgent.indexOf('Mobile') > -1) | 
+	if ( (navigator.userAgent.indexOf('Mobile') > -1) |
 		 (navigator.userAgent.indexOf('Opera Mini/') > -1) ) {
 
 		operaDetect.results.platform = "Mobile/Tablet";
@@ -28,7 +28,7 @@ if ( operaDetect.isOpera ) {
 	} else {
 
 		operaDetect.results.platform = "Desktop";
-		
+
 	}
 
 
@@ -37,8 +37,8 @@ if ( operaDetect.isOpera ) {
 
 		operaDetect.results.OS = "Android";
 
-	} else if ( (navigator.userAgent.indexOf('Coast/') > -1) | 
-		 		(navigator.userAgent.indexOf('iPad') > -1) | 
+	} else if ( (navigator.userAgent.indexOf('Coast/') > -1) |
+		 		(navigator.userAgent.indexOf('iPad') > -1) |
 		 		(navigator.userAgent.indexOf('iPhone') > -1) ) {
 
 		operaDetect.results.OS = "iOS";
@@ -59,13 +59,13 @@ if ( operaDetect.isOpera ) {
 
 
 	/* Browser */
-	if ( (navigator.userAgent.indexOf('OPiOS/') > -1) | 
+	if ( (navigator.userAgent.indexOf('OPiOS/') > -1) |
 		 (navigator.userAgent.indexOf('Opera Mini/') > -1) |
 		 (navigator.userAgent.indexOf('OPR/15') > -1 && navigator.userAgent.indexOf('Mobile') > -1)  ) {
 
 		operaDetect.results.browser = "Opera Mini";
 
-	} else if ( navigator.userAgent.indexOf('OPR/') > -1 && 
+	} else if ( navigator.userAgent.indexOf('OPR/') > -1 &&
 				navigator.userAgent.indexOf('Mobile') > -1 ) {
 
 		operaDetect.results.browser = "Opera Mobile";
@@ -84,7 +84,7 @@ if ( operaDetect.isOpera ) {
 
 
 	/* Mode */
-	if ( (navigator.userAgent.indexOf('Presto/') > -1) && 
+	if ( (navigator.userAgent.indexOf('Presto/') > -1) &&
 		 (navigator.userAgent.indexOf('Opera Mini/') > -1) ) {
 
 		operaDetect.results.mode = "Extreme Savings";
@@ -94,7 +94,7 @@ if ( operaDetect.isOpera ) {
 
 		operaDetect.results.mode = "High/Normal Savings";
 		operaDetect.isExtremeMode = 0;
-		
+
 	}
 
 
