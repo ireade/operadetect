@@ -3,7 +3,7 @@ var operaDetect = new Object;
 
 // Check if current browser is Opera
 operaDetect.isOpera = !!window.opera |
-					  !!window.opr | 
+					  !!window.opr |
 					  ( navigator.userAgent.indexOf(' OPR/') > -1 ) |
 					  ( navigator.userAgent.indexOf(' Coast/') > -1 ) |
 					  ( navigator.userAgent.indexOf(' OPiOS/') > -1 );
@@ -61,7 +61,7 @@ if ( operaDetect.isOpera ) {
 	/* Browser */
 	if ( (navigator.userAgent.indexOf('OPiOS/') > -1) |
 		 (navigator.userAgent.indexOf('Opera Mini/') > -1) |
-		 (navigator.userAgent.indexOf('OPR/15') > -1 && navigator.userAgent.indexOf('Mobile') > -1)  ) {
+		 (/OPR\/[0-9]+/.test(navigator.userAgent) > -1 && navigator.userAgent.indexOf('Mobile') > -1)  ) {
 
 		operaDetect.results.browser = "Opera Mini";
 
